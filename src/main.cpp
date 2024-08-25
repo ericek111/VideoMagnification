@@ -21,6 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>. */
 //OpenCV
 #include <opencv2/core.hpp>
 #include <opencv2/objdetect.hpp>
+#include <opencv2/imgproc/types_c.h>
 
 //QT5
 #include <QApplication>
@@ -284,7 +285,7 @@ int main(int argc, char** argv) {
 
     //The graph used to display frequencydomain values
     QCPBars* frequency_bars = new QCPBars(custom_plot_frequency.xAxis, custom_plot_frequency.yAxis);
-    custom_plot_frequency.addPlottable(frequency_bars);
+    // custom_plot_frequency.addPlottable(frequency_bars);
     frequency_bars->keyAxis()->setLabel("frequency in Hz");
     frequency_bars->valueAxis()->setLabel("intensity");
     frequency_bars->setPen(Qt::NoPen);

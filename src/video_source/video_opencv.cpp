@@ -32,18 +32,18 @@ VideoSource::~VideoSource() {
 }
 
 int VideoSource::get_fps() const noexcept {
-    return static_cast<int>(video_source.get(CV_CAP_PROP_FPS));
+    return static_cast<int>(video_source.get(cv::CAP_PROP_FPS));
 }
 
 int VideoSource::get_n_frames() const noexcept {
-    return static_cast<int>(video_source.get(CV_CAP_PROP_FRAME_COUNT));
+    return static_cast<int>(video_source.get(cv::CAP_PROP_FRAME_COUNT));
 }
 
 void VideoSource::operator>>(cv::Mat& out) noexcept {
     video_source >> out;
     if(out.rows == 0) { //Loop the video
         first_playback = false;
-        video_source.set(CV_CAP_PROP_POS_FRAMES, 0.0);
+        video_source.set(cv::CAP_PROP_POS_FRAMES, 0.0);
         video_source >> out;
     }
 }
